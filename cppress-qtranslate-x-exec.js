@@ -14,7 +14,6 @@
 	
 	var fieldRegexp = /\[([a-zA-Z0-9]*)\]/; 
 
-	/** TODO RESOLVE BUG on MULTIPLE CONTENT **/
 	$(document).on('widget.presetdata', function(e, data){
 		$.each(cpPressTrasnlatableFields, function(index, field){
 			var fieldObj = {};
@@ -31,10 +30,9 @@
 					if(field === '['+fieldName+']['+subFieldName+']'){
 						if(data[fieldName].hasOwnProperty(subFieldName)){
 							var d = data[fieldName][subFieldName];
-							console.log(d);
 							for(var i = 0; i<d.length; i++){
 								fieldObj[qtx.getActiveLanguage()] = d[i];
-								d[i] = fieldObj;
+								d[i] = _.clone(fieldObj);
  							}
 						}	
 					}
@@ -77,7 +75,7 @@
 		}
 	});
 	
-	qtx.addLanguageSwitchAfterListener(function(lang){
+	qtx.addLanguageSwitchAfterListener(function(){
 		$.cpPageBuilder.refresh();
 	});
 	
