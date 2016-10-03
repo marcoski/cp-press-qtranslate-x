@@ -2,7 +2,7 @@
 	var qtx = qTranslateConfig.js.get_qtx();
 	
 	var cpPressTrasnlatableFields = [
-		'[wtitle]', '[text]', '[body]', '[subject]', '[submit]', '[linktext]', '[slides][content]', '[slides][title]',
+		'[wtitle]', '[text]', '[linkbuttontext]', '[body]', '[subject]', '[submit]', '[linktext]', '[slides][content]', '[slides][title]',
 		'[items][caption]', '[markers][content]', '[ajaxbutton]', '[alttext]'
 	];
 	
