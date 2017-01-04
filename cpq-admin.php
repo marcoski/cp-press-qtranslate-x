@@ -24,10 +24,10 @@ add_filter('cppress_widget_attrs', 'cpq_widget_attrs', 10, 3);
 
 function cpq_widget_attrs($attrs, $instance, $field){
 	$lang = cpq_get_lang($instance);
-	if(is_array($attrs['value'])){
-		$attrs['data-values'] = htmlspecialchars(json_encode($attrs['value'], JSON_HEX_TAG));
-		if(isset($attrs['value'][$lang])){
-			$value = $attrs['value'][$lang];
+	if(isset($instance[$field]) && is_array($instance[$field])){
+		$attrs['data-values'] = htmlspecialchars(json_encode($instance[$field], JSON_HEX_TAG));
+		if(isset($instance[$field][$lang])){
+			$value = $instance[$field][$lang];
 			$attrs['value'] = $value;
 		}else{
 			$attrs['value'] = "";
