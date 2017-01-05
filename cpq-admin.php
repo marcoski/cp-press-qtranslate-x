@@ -28,7 +28,7 @@ function cpq_widget_attrs($attrs, $instance, $field){
 		$attrs['data-values'] = htmlspecialchars(json_encode($instance[$field], JSON_HEX_TAG));
 		if(isset($instance[$field][$lang])){
 			$value = $instance[$field][$lang];
-			$attrs['value'] = $value;
+			$attrs['value'] = htmlspecialchars($value);
 		}else{
 			$attrs['value'] = "";
 		}

@@ -47,10 +47,12 @@
 	$(document).on('widget.loaded repeater.add', function(){
 		$.each(cpPressTrasnlatableFields, function(index, field){
 			var $field = $('#widget_form').find('[name*="'+field+'"]');
-			if($field.hasClass('wp-editor-area')){
-				$field.on('editor.init', function(){
-					$field.siblings('.mce-panel').addClass('cppress-translatable');
-				});
+			if($field.hasClass('wp-editor-area')) {
+                $field.on('editor.init', function () {
+                    $field.siblings('.mce-panel').addClass('cppress-translatable');
+                });
+            }else if($field.hasClass('.code-editor')){
+                $field.siblings('.ace_editor').addClass('cppress-translatable');
 			}else{
 				$field.addClass('cppress-translatable');
 			}
